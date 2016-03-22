@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		874D9B9D1CA1A6AC009D2E04 /* DeviceInformationUniversal */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 874D9BA01CA1A6AC009D2E04 /* Build configuration list for PBXAggregateTarget "DeviceInformationUniversal" */;
+			buildPhases = (
+				874D9BA11CA1A6D7009D2E04 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = DeviceInformationUniversal;
+			productName = DeviceInformationUniversal;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		87A04FDA1C9F947C00AE1F94 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A04FD91C9F947C00AE1F94 /* AppDelegate.swift */; };
 		87A04FDC1C9F947C00AE1F94 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A04FDB1C9F947C00AE1F94 /* ViewController.swift */; };
@@ -324,6 +338,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "大國嗣元";
 				TargetAttributes = {
+					874D9B9D1CA1A6AC009D2E04 = {
+						CreatedOnToolsVersion = 7.3;
+					};
 					87A04FD51C9F947C00AE1F94 = {
 						CreatedOnToolsVersion = 7.2.1;
 					};
@@ -362,6 +379,7 @@
 				87A04FF41C9F947C00AE1F94 /* DeviceInformationSampleUITests */,
 				87A0500B1C9F956F00AE1F94 /* DeviceInformation */,
 				87A050141C9F956F00AE1F94 /* DeviceInformationTests */,
+				874D9B9D1CA1A6AC009D2E04 /* DeviceInformationUniversal */,
 			);
 		};
 /* End PBXProject section */
@@ -406,6 +424,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		874D9BA11CA1A6D7009D2E04 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "UNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\nFRAMEWORK_NAME=DeviceInformation\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# 1. Copy the iphone device's framework structure to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# 2. Copy the Modules content from simulator's framework to universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/x86_64.swiftmodule\" \"${UNIVERSAL_OUTPUTFOLDER}/${FRAMEWORK_NAME}.framework/Modules/${FRAMEWORK_NAME}.swiftmodule/\"\n\n\n# 3. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${FRAMEWORK_NAME}.framework/${FRAMEWORK_NAME}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		87A04FD21C9F947C00AE1F94 /* Sources */ = {
@@ -499,6 +533,20 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		874D9B9E1CA1A6AC009D2E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		874D9B9F1CA1A6AC009D2E04 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		87A04FFC1C9F947C00AE1F94 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -726,6 +774,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		874D9BA01CA1A6AC009D2E04 /* Build configuration list for PBXAggregateTarget "DeviceInformationUniversal" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				874D9B9E1CA1A6AC009D2E04 /* Debug */,
+				874D9B9F1CA1A6AC009D2E04 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		87A04FD11C9F947C00AE1F94 /* Build configuration list for PBXProject "DeviceInformationSample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

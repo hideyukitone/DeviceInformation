@@ -14,9 +14,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>DeviceInformationUniversal.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>874D9B9D1CA1A6AC009D2E04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>87A04FD51C9F947C00AE1F94</key>
 		<dict>
 			<key>primary</key>
