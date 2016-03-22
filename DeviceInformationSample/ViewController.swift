@@ -2,24 +2,41 @@
 //  ViewController.swift
 //  DeviceInformationSample
 //
-//  Created by 大國嗣元 on 2016/03/21.
-//  Copyright © 2016年 大國嗣元. All rights reserved.
+//  Created by hideyukitone on 2016/03/21.
+//  Copyright © 2016年 hideyukitone. All rights reserved.
 //
 
 import UIKit
+import DeviceInformation
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var lblDeviceModelName: UILabel!
+    @IBOutlet weak var lbliOSVer: UILabel!
+    @IBOutlet weak var imgModel: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        lblDeviceModelName.text = DeviceInformation.modelName
+        lbliOSVer.text = "iOS " + DeviceInformation.iOSVersion
+        
+        if DeviceInformation.isiPhone() {
+            imgModel.image = UIImage(named: "iPhone")
+        }else if DeviceInformation.isiPad() {
+            imgModel.image = UIImage(named: "iPad")
+        }else if DeviceInformation.isiPodtouch() {
+            imgModel.image = UIImage(named: "iPod touch")
+        }else if DeviceInformation.isSimulator() {
+            
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
 }
 

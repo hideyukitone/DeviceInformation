@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>DeviceInformation.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>DeviceInformationSample.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,16 @@
 			<true/>
 		</dict>
 		<key>87A04FF41C9F947C00AE1F94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87A0500B1C9F956F00AE1F94</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87A050141C9F956F00AE1F94</key>
 		<dict>
 			<key>primary</key>
 			<true/>

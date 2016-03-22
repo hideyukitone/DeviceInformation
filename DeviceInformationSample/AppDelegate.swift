@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  DeviceInformationSample
 //
-//  Created by 大國嗣元 on 2016/03/21.
-//  Copyright © 2016年 大國嗣元. All rights reserved.
+//  Created by hideyukitone on 2016/03/21.
+//  Copyright © 2016年 hideyukitone. All rights reserved.
 //
 
 import UIKit
