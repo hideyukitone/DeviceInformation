@@ -38,60 +38,60 @@ public class DeviceInformation {
         case Apple_TV
         case Simulator
         
-        static func byIdentifier(identifier: String) -> DeviceType? {
+        init?(identifier: String) {
             switch identifier {
             case "iPod5,1" :
-                return .iPod_touch_5
+                self = .iPod_touch_5
             case "iPod7,1" :
-                return .iPod_touch_6
+                self = .iPod_touch_6
             case "iPhone1,1" :
-                return .iPhone
+                self = .iPhone
             case "iPhone1,2" :
-                return .iPhone_3G
+                self = .iPhone_3G
             case "iPhone2,1" :
-                return .iPhone_3GS
+                self = .iPhone_3GS
             case "iPhone3,1", "iPhone3,2", "iPhone3,3" :
-                return .iPhone_4
+                self = .iPhone_4
             case "iPhone4,1" :
-                return .iPhone_4S
+                self = .iPhone_4S
             case "iPhone5,1", "iPhone5,2" :
-                return .iPhone_5
+                self = .iPhone_5
             case "iPhone5,3", "iPhone5,4" :
-                return .iPhone_5c
+                self = .iPhone_5c
             case "iPhone6,1", "iPhone6,2" :
-                return .iPhone_5s
+                self = .iPhone_5s
             case "iPhone7,2" :
-                return .iPhone_6
+                self = .iPhone_6
             case "iPhone7,1" :
-                return .iPhone_6_Plus
+                self = .iPhone_6_Plus
             case "iPhone8,1" :
-                return .iPhone_6s
+                self = .iPhone_6s
             case "iPhone8,2" :
-                return .iPhone_6s_Plus
+                self = .iPhone_6s_Plus
             case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4" :
-                return .iPad_2
+                self = .iPad_2
             case "iPad3,1", "iPad3,2", "iPad3,3" :
-                return .iPad_3
+                self = .iPad_3
             case "iPad3,4", "iPad3,5", "iPad3,6" :
-                return .iPad_4
+                self = .iPad_4
             case "iPad4,1", "iPad4,2", "iPad4,3" :
-                return .iPad_Air
+                self = .iPad_Air
             case "iPad5,3", "iPad5,4" :
-                return .iPad_Air_2
+                self = .iPad_Air_2
             case "iPad2,5", "iPad2,6", "iPad2,7" :
-                return .iPad_mini
+                self = .iPad_mini
             case "iPad4,4", "iPad4,5", "iPad4,6" :
-                return .iPad_mini_2
+                self = .iPad_mini_2
             case "iPad4,7", "iPad4,8", "iPad4,9" :
-                return .iPad_mini_3
+                self = .iPad_mini_3
             case "iPad5,1", "iPad5,2" :
-                return .iPad_mini_4
+                self = .iPad_mini_4
             case "iPad6,7", "iPad6,8" :
-                return .iPad_Pro
+                self = .iPad_Pro
             case "AppleTV5,3" :
-                return .Apple_TV
+                self = .Apple_TV
             case "x86_64", "i386" :
-                return .Simulator
+                self = .Simulator
             default :
                 return nil
             }
@@ -212,7 +212,7 @@ public class DeviceInformation {
      */
     public static var modelName: String {
         let identifier = myDeviceIdentifier
-        return DeviceType.byIdentifier(identifier)?.name() ?? identifier
+        return DeviceType(identifier: identifier)?.name() ?? identifier
     }
     
     /**
@@ -228,7 +228,7 @@ public class DeviceInformation {
      
      */
     public class func isiPhone() -> Bool {
-        return DeviceType.byIdentifier(myDeviceIdentifier)?.isiPhone() ?? false
+        return DeviceType(identifier: myDeviceIdentifier)?.isiPhone() ?? false
     }
     
     /**
@@ -236,7 +236,7 @@ public class DeviceInformation {
      
      */
     public class func isiPodtouch() -> Bool {
-        return DeviceType.byIdentifier(myDeviceIdentifier)?.isiPodtouch() ?? false
+        return DeviceType(identifier: myDeviceIdentifier)?.isiPodtouch() ?? false
     }
     
     /**
@@ -244,7 +244,7 @@ public class DeviceInformation {
      
      */
     public class func isiPad() -> Bool {
-        return DeviceType.byIdentifier(myDeviceIdentifier)?.isiPad() ?? false
+        return DeviceType(identifier: myDeviceIdentifier)?.isiPad() ?? false
     }
     
     /**
@@ -252,7 +252,7 @@ public class DeviceInformation {
      
      */
     public class func isAppleTV() -> Bool {
-        return DeviceType.byIdentifier(myDeviceIdentifier)?.isAppleTV() ?? false
+        return DeviceType(identifier: myDeviceIdentifier)?.isAppleTV() ?? false
     }
     
     /**
@@ -260,7 +260,7 @@ public class DeviceInformation {
      
      */
     public class func isSimulator() -> Bool {
-        return DeviceType.byIdentifier(myDeviceIdentifier)?.isSimulator() ?? false
+        return DeviceType(identifier: myDeviceIdentifier)?.isSimulator() ?? false
     }
     
     private static var myDeviceIdentifier: String {
