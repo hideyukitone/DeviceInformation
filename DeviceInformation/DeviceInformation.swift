@@ -25,6 +25,7 @@ public class DeviceInformation {
         case iPhone_6_Plus
         case iPhone_6s
         case iPhone_6s_Plus
+        case iPhone_SE
         case iPad_2
         case iPad_3
         case iPad_4
@@ -34,7 +35,8 @@ public class DeviceInformation {
         case iPad_mini_2
         case iPad_mini_3
         case iPad_mini_4
-        case iPad_Pro
+        case iPad_Pro_129
+        case iPad_Pro_97
         case Apple_TV
         case Simulator
         
@@ -68,6 +70,8 @@ public class DeviceInformation {
                 self = .iPhone_6s
             case "iPhone8,2" :
                 self = .iPhone_6s_Plus
+            case "iPhone8,4" :
+                self = .iPhone_SE
             case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4" :
                 self = .iPad_2
             case "iPad3,1", "iPad3,2", "iPad3,3" :
@@ -87,7 +91,9 @@ public class DeviceInformation {
             case "iPad5,1", "iPad5,2" :
                 self = .iPad_mini_4
             case "iPad6,7", "iPad6,8" :
-                self = .iPad_Pro
+                self = .iPad_Pro_129
+            case "iPad6,3", "iPad6,4" :
+                self = .iPad_Pro_97
             case "AppleTV5,3" :
                 self = .Apple_TV
             case "x86_64", "i386" :
@@ -103,11 +109,11 @@ public class DeviceInformation {
                 return "iPod touch 5"
             case .iPod_touch_6 :
                 return "iPod touch 6"
-            case iPhone :
+            case .iPhone :
                 return "iPhone"
-            case iPhone_3G :
+            case .iPhone_3G :
                 return "iPhone 3G"
-            case iPhone_3GS :
+            case .iPhone_3GS :
                 return "iPhone 3GS"
             case .iPhone_4 :
                 return "iPhone 4"
@@ -127,6 +133,8 @@ public class DeviceInformation {
                 return "iPhone 6s"
             case .iPhone_6s_Plus :
                 return "iPhone 6s Plus"
+            case .iPhone_SE :
+                return "iPhone SE"
             case .iPad_2 :
                 return "iPad 2"
             case .iPad_3 :
@@ -141,12 +149,14 @@ public class DeviceInformation {
                 return "iPad mini"
             case .iPad_mini_2 :
                 return "iPad mini 2"
-            case iPad_mini_3 :
+            case .iPad_mini_3 :
                 return "iPad mini 3"
             case .iPad_mini_4 :
                 return "iPad mini 4"
-            case .iPad_Pro :
-                return "iPad Pro"
+            case .iPad_Pro_129 :
+                return "iPad Pro 12.9"
+            case .iPad_Pro_97 :
+                return "iPad Pro 9.7"
             case .Apple_TV :
                 return "Apple TV"
             case .Simulator :
@@ -159,7 +169,8 @@ public class DeviceInformation {
             case .iPhone, .iPhone_3G, .iPhone_3GS
             , .iPhone_4, .iPhone_4S
             , .iPhone_5, .iPhone_5c, .iPhone_5s
-            , .iPhone_6, .iPhone_6_Plus, .iPhone_6s, .iPhone_6s_Plus :
+            , .iPhone_6, .iPhone_6_Plus, .iPhone_6s, .iPhone_6s_Plus
+            , .iPhone_SE :
                 return true
             default :
                 return false
@@ -180,7 +191,7 @@ public class DeviceInformation {
             case .iPad_2, .iPad_3, .iPad_4
             , .iPad_Air, .iPad_Air_2
             , .iPad_mini, .iPad_mini_2, .iPad_mini_3, .iPad_mini_4
-            , .iPad_Pro :
+            , .iPad_Pro_129, .iPad_Pro_97 :
                 return true
             default :
                 return false
