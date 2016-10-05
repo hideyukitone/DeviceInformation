@@ -26,6 +26,8 @@ public class DeviceInformation {
         case iPhone_6s
         case iPhone_6s_Plus
         case iPhone_SE
+        case iPhone_7
+        case iPhone_7_Plus
         case iPad_2
         case iPad_3
         case iPad_4
@@ -72,6 +74,10 @@ public class DeviceInformation {
                 self = .iPhone_6s_Plus
             case "iPhone8,4" :
                 self = .iPhone_SE
+            case "iPhone9,1" :
+                self = .iPhone_7
+            case "iPhone9,2" :
+                self = .iPhone_7_Plus
             case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4" :
                 self = .iPad_2
             case "iPad3,1", "iPad3,2", "iPad3,3" :
@@ -135,6 +141,10 @@ public class DeviceInformation {
                 return "iPhone 6s Plus"
             case .iPhone_SE :
                 return "iPhone SE"
+            case .iPhone_7 :
+                return "iPhone 7"
+            case .iPhone_7_Plus :
+                return "iPhone 7 Plus"
             case .iPad_2 :
                 return "iPad 2"
             case .iPad_3 :
@@ -143,7 +153,7 @@ public class DeviceInformation {
                 return "iPad 4"
             case .iPad_Air :
                 return "iPad Air"
-            case iPad_Air_2 :
+            case .iPad_Air_2 :
                 return "iPad Air 2"
             case .iPad_mini :
                 return "iPad mini"
@@ -164,43 +174,9 @@ public class DeviceInformation {
             }
         }
         
-        func isiPhone() -> Bool {
-            switch self {
-            case .iPhone, .iPhone_3G, .iPhone_3GS
-            , .iPhone_4, .iPhone_4S
-            , .iPhone_5, .iPhone_5c, .iPhone_5s
-            , .iPhone_6, .iPhone_6_Plus, .iPhone_6s, .iPhone_6s_Plus
-            , .iPhone_SE :
-                return true
-            default :
-                return false
-            }
-        }
-        
         func isiPodtouch() -> Bool {
             switch self {
             case .iPod_touch_5, .iPod_touch_6 :
-                return true
-            default :
-                return false
-            }
-        }
-        
-        func isiPad() -> Bool {
-            switch self {
-            case .iPad_2, .iPad_3, .iPad_4
-            , .iPad_Air, .iPad_Air_2
-            , .iPad_mini, .iPad_mini_2, .iPad_mini_3, .iPad_mini_4
-            , .iPad_Pro_129, .iPad_Pro_97 :
-                return true
-            default :
-                return false
-            }
-        }
-        
-        func isAppleTV() -> Bool {
-            switch self {
-            case .Apple_TV :
                 return true
             default :
                 return false
@@ -222,7 +198,7 @@ public class DeviceInformation {
      
      */
     public static var modelName: String {
-        let identifier = myDeviceIdentifier
+        let identifier = deviceIdentifier
         return DeviceType(identifier: identifier)?.name() ?? identifier
     }
     
@@ -231,50 +207,50 @@ public class DeviceInformation {
      
      */
     public static var iOSVersion: String {
-        return UIDevice.currentDevice().systemVersion
+        return UIDevice.current.systemVersion
     }
     
     /**
      デバイスがiPhoneかの確認
      
      */
-    public class func isiPhone() -> Bool {
-        return DeviceType(identifier: myDeviceIdentifier)?.isiPhone() ?? false
+    public static var isiPhone: Bool {
+        return UIDevice.current.userInterfaceIdiom == .phone
     }
     
     /**
      デバイスがiPodtouchかの確認
      
      */
-    public class func isiPodtouch() -> Bool {
-        return DeviceType(identifier: myDeviceIdentifier)?.isiPodtouch() ?? false
+    public static var isiPodtouch: Bool {
+        return DeviceType(identifier: deviceIdentifier)?.isiPodtouch() ?? false
     }
     
     /**
      デバイスがiPadかの確認
      
      */
-    public class func isiPad() -> Bool {
-        return DeviceType(identifier: myDeviceIdentifier)?.isiPad() ?? false
+    public static var isiPad: Bool {
+        return UIDevice.current.userInterfaceIdiom == .pad
     }
     
     /**
      デバイスがAppleTVかの確認
      
      */
-    public class func isAppleTV() -> Bool {
-        return DeviceType(identifier: myDeviceIdentifier)?.isAppleTV() ?? false
+    public static var isAppleTV: Bool {
+        return UIDevice.current.userInterfaceIdiom == .tv
     }
     
     /**
      デバイスがシミュレーターかの確認
      
      */
-    public class func isSimulator() -> Bool {
-        return DeviceType(identifier: myDeviceIdentifier)?.isSimulator() ?? false
+    public static var isSimulator: Bool {
+        return DeviceType(identifier: deviceIdentifier)?.isSimulator() ?? false
     }
     
-    private static var myDeviceIdentifier: String {
+    private static var deviceIdentifier: String {
         var systemInfo = utsname()
         uname(&systemInfo)
         
@@ -283,8 +259,8 @@ public class DeviceInformation {
         var identifier = ""
         
         for children in mirror.children {
-            if let value = children.value as? Int8 where value != 0 {
-                identifier.append(UnicodeScalar(UInt8(value)))
+            if let value = children.value as? Int8, value != 0 {
+                identifier.append(String(UnicodeScalar(UInt8(value))))
             }
         }
         

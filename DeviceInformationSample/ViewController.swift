@@ -22,13 +22,13 @@ class ViewController: UIViewController {
         lblDeviceModelName.text = DeviceInformation.modelName
         lbliOSVer.text = "iOS " + DeviceInformation.iOSVersion
         
-        if DeviceInformation.isiPhone() {
+        if DeviceInformation.isiPhone {
             imgModel.image = UIImage(named: "iPhone")
-        }else if DeviceInformation.isiPad() {
+        }else if DeviceInformation.isiPad {
             imgModel.image = UIImage(named: "iPad")
-        }else if DeviceInformation.isiPodtouch() {
+        }else if DeviceInformation.isiPodtouch {
             imgModel.image = UIImage(named: "iPod touch")
-        }else if DeviceInformation.isSimulator() {
+        }else if DeviceInformation.isSimulator {
             
         }
     }
