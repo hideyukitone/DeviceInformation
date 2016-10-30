@@ -10,7 +10,7 @@ import UIKit
 
 public class DeviceInformation {
     
-    private enum DeviceType {
+    public enum DeviceType {
         case iPhone
         case iPhone_3G
         case iPhone_3GS
@@ -109,7 +109,7 @@ public class DeviceInformation {
             }
         }
         
-        func name() -> String {
+        var name: String {
             switch self {
             case .iPod_touch_5 :
                 return "iPod touch 5"
@@ -174,7 +174,7 @@ public class DeviceInformation {
             }
         }
         
-        func isiPodtouch() -> Bool {
+        var isiPodtouch: Bool {
             switch self {
             case .iPod_touch_5, .iPod_touch_6 :
                 return true
@@ -183,7 +183,7 @@ public class DeviceInformation {
             }
         }
         
-        func isSimulator() -> Bool {
+        var isSimulator: Bool {
             switch self {
             case .Simulator :
                 return true
@@ -194,12 +194,20 @@ public class DeviceInformation {
     }
     
     /**
+     デバイスの種類
+     
+     */
+    public static var deviceType: DeviceType? {
+        return DeviceType(identifier: deviceIdentifier)
+    }
+    
+    /**
      デバイスのモデル名
      
      */
     public static var modelName: String {
         let identifier = deviceIdentifier
-        return DeviceType(identifier: identifier)?.name() ?? identifier
+        return DeviceType(identifier: identifier)?.name ?? identifier
     }
     
     /**
@@ -223,7 +231,7 @@ public class DeviceInformation {
      
      */
     public static var isiPodtouch: Bool {
-        return DeviceType(identifier: deviceIdentifier)?.isiPodtouch() ?? false
+        return deviceType?.isiPodtouch ?? false
     }
     
     /**
@@ -247,7 +255,7 @@ public class DeviceInformation {
      
      */
     public static var isSimulator: Bool {
-        return DeviceType(identifier: deviceIdentifier)?.isSimulator() ?? false
+        return deviceType?.isSimulator ?? false
     }
     
     private static var deviceIdentifier: String {
