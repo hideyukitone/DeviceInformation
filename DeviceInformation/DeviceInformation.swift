@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class DeviceInformation {
+open class DeviceInformation {
     
     public enum DeviceType {
         case iPhone
@@ -42,7 +42,7 @@ public class DeviceInformation {
         case Apple_TV
         case Simulator
         
-        init?(identifier: String) {
+        fileprivate init?(identifier: String) {
             switch identifier {
             case "iPod5,1" :
                 self = .iPod_touch_5
@@ -109,7 +109,7 @@ public class DeviceInformation {
             }
         }
         
-        var name: String {
+        fileprivate var name: String {
             switch self {
             case .iPod_touch_5 :
                 return "iPod touch 5"
@@ -174,7 +174,7 @@ public class DeviceInformation {
             }
         }
         
-        var isiPodtouch: Bool {
+        fileprivate var isiPodtouch: Bool {
             switch self {
             case .iPod_touch_5, .iPod_touch_6 :
                 return true
@@ -183,7 +183,7 @@ public class DeviceInformation {
             }
         }
         
-        var isSimulator: Bool {
+        fileprivate var isSimulator: Bool {
             switch self {
             case .Simulator :
                 return true
@@ -197,7 +197,7 @@ public class DeviceInformation {
      デバイスの種類
      
      */
-    public static var deviceType: DeviceType? {
+    open static var deviceType: DeviceType? {
         return DeviceType(identifier: deviceIdentifier)
     }
     
@@ -205,7 +205,7 @@ public class DeviceInformation {
      デバイスのモデル名
      
      */
-    public static var modelName: String {
+    open static var modelName: String {
         let identifier = deviceIdentifier
         return DeviceType(identifier: identifier)?.name ?? identifier
     }
@@ -214,7 +214,7 @@ public class DeviceInformation {
      iOSバージョン
      
      */
-    public static var iOSVersion: String {
+    open static var iOSVersion: String {
         return UIDevice.current.systemVersion
     }
     
@@ -222,7 +222,7 @@ public class DeviceInformation {
      デバイスがiPhoneかの確認
      
      */
-    public static var isiPhone: Bool {
+    open static var isiPhone: Bool {
         return UIDevice.current.userInterfaceIdiom == .phone
     }
     
@@ -230,7 +230,7 @@ public class DeviceInformation {
      デバイスがiPodtouchかの確認
      
      */
-    public static var isiPodtouch: Bool {
+    open static var isiPodtouch: Bool {
         return deviceType?.isiPodtouch ?? false
     }
     
@@ -238,7 +238,7 @@ public class DeviceInformation {
      デバイスがiPadかの確認
      
      */
-    public static var isiPad: Bool {
+    open static var isiPad: Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
     
@@ -246,7 +246,7 @@ public class DeviceInformation {
      デバイスがAppleTVかの確認
      
      */
-    public static var isAppleTV: Bool {
+    open static var isAppleTV: Bool {
         return UIDevice.current.userInterfaceIdiom == .tv
     }
     
@@ -254,7 +254,7 @@ public class DeviceInformation {
      デバイスがシミュレーターかの確認
      
      */
-    public static var isSimulator: Bool {
+    open static var isSimulator: Bool {
         return deviceType?.isSimulator ?? false
     }
     
