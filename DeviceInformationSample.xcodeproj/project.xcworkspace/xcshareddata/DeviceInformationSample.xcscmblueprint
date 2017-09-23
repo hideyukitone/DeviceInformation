@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "001467B7217937B10447E02D48C8C0C4BDA84877",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "001467B7217937B10447E02D48C8C0C4BDA84877" : 0,
+    "AB8BC56F08E8A78E9F4475BB9BA4CF06034AB468" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C148F62E-2D06-4EAA-9C0E-37FAF9A33C94",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "001467B7217937B10447E02D48C8C0C4BDA84877" : "DeviceInformationSample\/",
+    "AB8BC56F08E8A78E9F4475BB9BA4CF06034AB468" : ".."
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "DeviceInformationSample",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "DeviceInformationSample.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/hideyukitone\/DeviceInformation.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "001467B7217937B10447E02D48C8C0C4BDA84877"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/bitbucket.org\/hideyukitone\/share_swift2.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AB8BC56F08E8A78E9F4475BB9BA4CF06034AB468"
+    }
+  ]
+}

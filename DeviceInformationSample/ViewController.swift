@@ -20,15 +20,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         lblDeviceModelName.text = DeviceInformation.modelName
-        lbliOSVer.text = "iOS " + DeviceInformation.iOSVersion
+        lbliOSVer.text = DeviceInformation.systemName + " " + DeviceInformation.iOSVersion
         
         if DeviceInformation.isiPhone {
-            imgModel.image = UIImage(named: "iPhone")
-        }else if DeviceInformation.isiPad {
-            imgModel.image = UIImage(named: "iPad")
-        }else if DeviceInformation.isiPodtouch {
-            imgModel.image = UIImage(named: "iPod touch")
-        }else if DeviceInformation.isSimulator {
+            imgModel.image = #imageLiteral(resourceName: "iPhone")
+        } else if DeviceInformation.isiPad {
+            imgModel.image = #imageLiteral(resourceName: "iPad")
+        } else if DeviceInformation.isiPodtouch {
+            imgModel.image = #imageLiteral(resourceName: "iPod touch")
+        } else if DeviceInformation.isSimulator {
             
         }
     }
